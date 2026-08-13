@@ -74,16 +74,6 @@ resource "aws_security_group_rule" "allow_alb_all_outbound" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "allow_ssh_inbound" {
-  type              = "ingress"
-  security_group_id = aws_security_group.instances.id
-
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-}
-
 resource "aws_instance" "instance_1" {
   ami                         = "ami-0532913178263be11"
   instance_type               = "t3.micro"
