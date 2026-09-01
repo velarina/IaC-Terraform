@@ -23,7 +23,7 @@ variable "bucket_name" {
 }
 
 # route to S3 variables
-varible "domain" {
+variable "domain" {
     description = "domain for website"
     type = string
 }
