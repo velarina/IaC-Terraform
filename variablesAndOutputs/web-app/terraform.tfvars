@@ -1,0 +1,5 @@
+bucket_name = ""
+domain = "sendiko.dev"
+db_name = "mydb"
+db_user = "vel"
+#db_password = "vela123"
