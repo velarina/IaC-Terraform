@@ -113,7 +113,7 @@ data "aws_subnet_ids" "default_subnet" {
     vpc_id = data.aws_vpc.default_vpc.id
 }
 
-resource "aws_security_group_rule" "instances" {
+resource "aws_security_group" "instances" {
     name = "instance-security-group"
 }
 
@@ -179,8 +179,13 @@ resource "aws_lb_listener_rule" "instances" {
 
     condition {
         path_pattern {
-            value = ["*"]
+            values = ["*"]
         }
+    }
+
+    action {
+      type = "forward"
+      target_group_arn = aws_lb_target_group.instances.arn
     }
 }
 
