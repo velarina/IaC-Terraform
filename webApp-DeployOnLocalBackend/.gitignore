@@ -1,16 +1,25 @@
-# Local state files & backups
+# Ignore local .terraform working directories & downloaded provider binaries
+**/.terraform/
+.terraform/
+terraform-provider-*
+
+# Ignore local state files (can contain unencrypted secrets)
 *.tfstate
 *.tfstate.*
-crash.log
+*.tfstate.backup
 
-# Terraform plugin directory
-.terraform/
-
-# Variable files that might contain secrets
+# Ignore sensitive variable values
 *.tfvars
 *.tfvars.json
+
+# Ignore local crash logs & plan overrides
+crash.log
+crash.*.log
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-*.pem
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
