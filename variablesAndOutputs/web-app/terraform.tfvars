@@ -1,4 +1,4 @@
-bucket_name = ""
+bucket_prefix = ""
 domain = "sendiko.dev"
 db_name = "mydb"
 db_user = "vel"
