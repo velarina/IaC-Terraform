@@ -52,8 +52,8 @@ module "web_app_2" {
 
   #input variable
   bucket_prefix = "vela-tryingout-terraform"
-  domain = "otherdomain"
-  app_name = "web-app-1"
+  domain = "otherdomain.com"
+  app_name = "web-app-2"
   environment_name = "production"
   instance_type = "t3.micro"
   create_dns_zone = true

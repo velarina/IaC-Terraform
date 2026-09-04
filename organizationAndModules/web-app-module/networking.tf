@@ -4,8 +4,11 @@ data "aws_vpc" "default_vpc" {
 }
 
 #subnet
-data "aws_subnet_ids" "default_subnet" {
-    vpc_id = data.aws_vpc.default_vpc.id
+data "aws_subnets" "default_subnet" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default_vpc.id]
+  }
 }
 
 #security group for both the instances
@@ -33,12 +36,12 @@ resource "aws_lb_listener" "http" {
 
   #by default, return a simple 404 page
   default_action {
-    type = fixed_response
+    type = "fixed-response"
 
     fixed_response {
         content_type = "text/plain"
         message_body = "404: page not found"
-        status_code = 404
+        status_code = "404"
     }
   }
 }
@@ -68,7 +71,7 @@ resource "aws_lb_target_group_attachment" "instance_1" {
 }
 
 resource "aws_lb_target_group_attachment" "instance_2" {
-  target_group_arn = aws_lb_target_group.instance.arn
+  target_group_arn = aws_lb_target_group.instances.arn
   target_id = aws_instance.instance_2.id
   port = 8080
 }
@@ -117,6 +120,6 @@ resource "aws_security_group_rule" "allow_alb_all_outbound" {
 resource "aws_lb" "load_balancer" {
     name = "${var.app_name}-${var.environment_name}-web-app-lb"
     load_balancer_type = "application"
-    subnets = data.aws_subnet_ids.default_subnet.ids
+    subnets = data.aws_subnets.default_subnet.ids
     security_groups = [aws_security_group.alb.id]
 }
