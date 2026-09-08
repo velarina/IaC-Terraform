@@ -4,7 +4,7 @@ terraform {
     key = "managingMultipleEnvironment/global/terraform.tfstate"
     region = "ap-southeast-1"
     dynamodb_table =  "terraform-state-locking"
-    encryp = true  
+    encrypt = true  
   }
 
   required_providers {

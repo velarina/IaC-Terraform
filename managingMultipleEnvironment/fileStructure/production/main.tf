@@ -19,7 +19,7 @@ provider "aws" {
     region = "ap-southeast-1"  
 }
 
-variable "db_password" {
+variable "database_password" {
   description = "password for database"
   type = string
   sensitive = true
@@ -33,7 +33,7 @@ module "web_app" {
     source = "../../../organizationAndModules/web-app-module"
 
     bucket_prefix = "web-app-data-${local.environment_name}"
-    domain = "sendiko.dev"
+    domain = "example.dev"
     environment_name = local.environment_name
     instance_type = "t3.micro"
     create_dns_zone = false
