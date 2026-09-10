@@ -4,8 +4,9 @@ resource "aws_route53_zone" "primary" {
 }
 
 data "aws_route53_zone" "primary" {
-  count = var.create_dns_zone ? 0 : 1
-  name  = var.domain
+  count        = var.create_dns_zone ? 0 : 1
+  name         = var.domain
+  private_zone = false
 }
 
 locals {
