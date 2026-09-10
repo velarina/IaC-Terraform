@@ -21,7 +21,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
     defaults:
       run:
-        working-directory: managingMultipleEnvironment/file-structure/staging
+        working-directory: managingMultipleEnvironment/fileStructure/staging
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -103,7 +103,7 @@ jobs:
 
       - name: Terraform Apply Global
         if: github.event_name == 'push' || github.event_name == 'release'
-        working-directory: managingMultipleEnvironment/file-structure/global
+        working-directory: managingMultipleEnvironment/fileStructure/global
         run: |
           terraform init
           terraform apply -auto-approve
@@ -114,7 +114,7 @@ jobs:
 
       - name: Terraform Apply Production
         if: steps.check-tag.outputs.environment == 'production' && github.event_name == 'release'
-        working-directory: managingMultipleEnvironment/file-structure/production
+        working-directory: managingMultipleEnvironment/fileStructure/production
         run: |
           terraform init
           terraform apply -var database_password=${{secrets.DATABASE_PASSWORD}} -auto-approve
