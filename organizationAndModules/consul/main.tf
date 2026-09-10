@@ -1,18 +1,18 @@
 terraform {
   backend "s3" {
-    bucket = "molina-ts-state"
-    key = "organizationAndModules/consul/terraform.tfstate"
-    region = "ap-southeast-1"
+    bucket         = "molina-ts-state"
+    key            = "organizationAndModules/consul/terraform.tfstate"
+    region         = "ap-southeast-1"
     dynamodb_table = "terraform-state-locking"
-    encrypt = true
+    encrypt        = true
   }
 
-    required_providers {
+  required_providers {
     aws = {
-        source = "hashicorp/aws"
-        version = "~>6.0"
-        }
+      source  = "hashicorp/aws"
+      version = "~>6.0"
     }
+  }
 }
 
 provider "aws" {

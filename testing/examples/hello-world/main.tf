@@ -1,16 +1,16 @@
 terraform {
   backend "s3" {
-    bucket = "amazon-bucket-vela-terraform"
-    key = "testing/examples/hello-world/terraform.tfstate"
-    region = "ap-southeast-1"
+    bucket         = "amazon-bucket-vela-terraform"
+    key            = "testing/examples/hello-world/terraform.tfstate"
+    region         = "ap-southeast-1"
     dynamodb_table = "amazon-dynamoDb-vela-terraform"
-    encrypt = true
+    encrypt        = true
   }
 
   required_providers {
     aws = {
-        source = "hashicorp/aws"
-        version = "~> 6.0"
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
     }
   }
 }

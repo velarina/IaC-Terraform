@@ -1,5 +1,5 @@
 bucket_prefix = ""
-domain = "sendiko.dev"
-db_name = "mydb"
-db_user = "vel"
+domain        = "sendiko.dev"
+db_name       = "mydb"
+db_user       = "vel"
 #db_password = "vela123"

@@ -1,9 +1,9 @@
 resource "aws_instance" "instance_1" {
-  ami                         = "ami-0532913178263be11"
-  instance_type               = "t3.micro"
-  key_name                    = "molina-key"
-  vpc_security_group_ids      = [aws_security_group.instances.id]
-  user_data                   = <<-EOF
+  ami                    = "ami-0532913178263be11"
+  instance_type          = "t3.micro"
+  key_name               = "molina-key"
+  vpc_security_group_ids = [aws_security_group.instances.id]
+  user_data              = <<-EOF
             #!/bin/bash
             echo "Hello, World 1" > /home/ubuntu/index.html
 
@@ -31,11 +31,11 @@ resource "aws_instance" "instance_1" {
 }
 
 resource "aws_instance" "instance_2" {
-  ami                         = "ami-0532913178263be11"
-  instance_type               = "t3.micro"
-  key_name                    = "molina-key"
-  vpc_security_group_ids      = [aws_security_group.instances.id]
-  user_data                   = <<-EOF
+  ami                    = "ami-0532913178263be11"
+  instance_type          = "t3.micro"
+  key_name               = "molina-key"
+  vpc_security_group_ids = [aws_security_group.instances.id]
+  user_data              = <<-EOF
             #!/bin/bash
             echo "Hello, World 2" > /home/ubuntu/index.html
 
