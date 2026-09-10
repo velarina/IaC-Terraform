@@ -5,9 +5,10 @@ name: "Terraform"
 #is issue the release : tag a new release
 #pull request : to go through and run terratest testing script to validate the configuration working as expected
 on:
-  push:
-    branches:
-      - main
+# uncomment to enable staging deploy from main
+#  push:
+#    branches:
+#      - main
   release:
     types: [published]
   pull_request:
