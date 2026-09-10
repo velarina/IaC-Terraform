@@ -1,0 +1,16 @@
+{
+  "Changes": [
+    {
+      "Action": "DELETE",
+      "ResourceRecordSet": {
+        "Name": "sendiko.dev.",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "Z1LMS91P8CMLE5",
+          "DNSName": "web-app-production-web-app-lb-1083205122.ap-southeast-1.elb.amazonaws.com.",
+          "EvaluateTargetHealth": true
+        }
+      }
+    }
+  ]
+}
